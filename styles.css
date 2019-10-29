@@ -1,10 +1,18 @@
 body, html{
-  height:100%;
+  /* height:100%; */
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
 }
-body{
+body {
   margin: 0px;
   background-color:#444;
   font-size: 18px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
@@ -20,8 +28,41 @@ body, a:link, a:visited, a:active{
 .title{
   background-color: #777;
 }
-.dancer{
-  border:10px solid red;
+
+.dancer {
+  border:10px solid rgb(0, 255, 0);
   border-radius:10px;
   position:absolute;
 }
+
+.blinking {
+  animation: blinkingText 4s infinite;
+}
+
+@keyframes blinkingText{
+  from {     background-color: rgb(228, 168, 5);    }
+  to {   background-color: rgb(78, 243, 2);    }
+}
+
+.shrink:hover {
+        -webkit-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+        transform: scale(0.3);
+}
+
+.poop {
+  animation: poop-dance .8s infinite alternate ease-in-out;
+  display: inline-block;
+}
+
+.poop:empty::before {
+content: '💩 ';
+}
+
+@keyframes poop-dance {
+  from, 49% { transform-origin: -50% 100%; }
+  50%, 75%, to { transform-origin: 150% 100%; }
+  25% { transform: rotate(-10deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(10deg); }
+ }
