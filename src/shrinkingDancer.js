@@ -3,20 +3,18 @@ class MakeShrinkingDancer extends MakeDancer {
     super(top, left, timeBetweenSteps);
   }
   step() {
-    // call the old version of step at the beginning of any call to this new version of step
-    // super.step();
-
     // See http://api.jquery.com/category/effects/ for this and
     // other effects you can use on a jQuery-wrapped html tag.
-    this.$node.addClass('shrink');
 
-    var styleSettings = {
-      border: '25px solid rgb(0, 0, 255)',
-      'border-radius': '25px',
-      position: 'absolute'
-    };
+    this.$node.addClass('tree');
 
-    this.$node.css(styleSettings);
+    this.$node.mouseenter(() => {
+      this.$node.fadeOut('slow');
+    });
+
+    this.$node.mouseleave(() => {
+      this.$node.fadeIn('slow');
+    });
   }
 }
 
